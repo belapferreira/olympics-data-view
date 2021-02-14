@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+<h1 align="center">
+  Olympic Games Data
+</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <img src="src/assets/olympic-games.png" width="50%" height="50%" max-width:100% >
+</p>
 
-## Available Scripts
+<strong align="center">
+  The goal was developmenting web pages using ReactJS to view data regarding Olympic Games medalists and the data was consumed from a JSON file.
+</strong>
 
-In the project directory, you can run:
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/belapferreira/olympics-data-view">
 
-### `yarn start`
+  <img alt="GitHub license" src="https://img.shields.io/github/license/belapferreira/olympics-data-view">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/belapferreira/olympics-data-view?style=social">
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="center">
+  <a href="#features">Features</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#heavy_check_mark-settings">Settings</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#arrow_down_small-cloning-the-repository">Cloning the repository</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#beginner-starting-the-application">Starting the application</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#wrench-techs--tools--resources">Techs | Tools | Resources</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#memo-license">Licença</a>
+</p>
 
-### `yarn test`
+### Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Selection of years listed from JSON file;
+- General page to view the gold, silver and bronze medals won by country according to the selected year;
+- Medalists page to view the gold, silver and bronze medals won by athlete according to the selected year.
+### :heavy_check_mark: Settings
 
-### `yarn build`
+The settings to execute the application in your computer are listed below.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-  [Git](https://git-scm.com);
+-  [Node](https://nodejs.org/);
+-  [Yarn](https://yarnpkg.com/).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### :arrow_down_small: Cloning the repository
+1. Through the terminal, go to the directory where you want to have the repository cloned and run the following command:
+```bash
+# cloning the repository
+git clone https://github.com/belapferreira/olympics-data-view
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### :beginner: Starting the application
+1. Through the terminal, go to the directory where the repository was cloned and run the following command:
+```bash
+# installing dependencies
+yarn install
 
-### `yarn eject`
+# starting application
+yarn start
+```
+### :wrench: Techs | Tools | Resource
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This project was developed using the following resources:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-  [Editor Config](https://editorconfig.org/);
+-  [Eslint](https://eslint.org/);
+-  [Prettier](https://prettier.io/);
+-  [React](https://pt-br.reactjs.org/);
+-  [React Data Table Component](https://github.com/jbetancur/react-data-table-component);
+-  [React DOM](https://pt-br.reactjs.org/docs/react-dom.html);
+-  [React Icons](https://react-icons.github.io/react-icons/);
+-  [React Router Dom](https://reactrouter.com/web/guides/quick-start);
+-  [React Scripts](https://github.com/facebook/create-react-app/tree/master/packages/react-scripts);
+-  [Styled Components](https://styled-components.com/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### :memo: License
+This project is under MIT license. See [LICENSE](https://github.com/belapferreira/olympics-data-view/blob/master/LICENSE) for more information.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Made by Bela Ferreira :blue_heart: Contact: https://www.linkedin.com/in/belapferreira :blush:
