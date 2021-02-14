@@ -56,7 +56,7 @@ yarn install
 # starting application
 yarn start
 ```
-### :wrench: Techs | Tools | Resource
+### :wrench: Techs | Tools | Resources
 
 This project was developed using the following resources:
 
