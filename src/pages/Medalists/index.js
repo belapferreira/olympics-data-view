@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 
 import database from '../../services/olympic-winners.json';
 
@@ -6,14 +6,66 @@ import { Container, Content } from './styles';
 
 import Header from '../../components/Header';
 import OptionHeader from '../../components/OptionHeader';
-import MedalistTable from '../../components/MedalistTable';
+import Table from '../../components/Table';
+import GoldTitle from '../../components/GoldTitle';
+import SilverTitle from '../../components/SilverTitle';
+import BronzeTitle from '../../components/BronzeTitle';
 
-export default function Medalists() {
+export default function Medalist() {
   const [years, setYears] = useState([]);
   const [selectedYear, setSelectedYear] = useState(0);
 
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+
+  const columns = [
+    {
+      name: 'Athlete',
+      selector: 'athlete',
+      width: '20%',
+      sortable: true,
+    },
+    {
+      name: 'Sport',
+      selector: 'sport',
+      width: '12%',
+      sortable: true,
+    },
+    {
+      name: 'Country',
+      selector: 'country',
+      width: '20%',
+      sortable: true,
+    },
+    {
+      name: <GoldTitle />,
+      selector: 'gold',
+      width: '12%',
+      sortable: true,
+      right: true,
+    },
+    {
+      name: <SilverTitle />,
+      selector: 'silver',
+      width: '12%',
+      sortable: true,
+      right: true,
+    },
+    {
+      name: <BronzeTitle />,
+      selector: 'bronze',
+      width: '12%',
+      sortable: true,
+      right: true,
+    },
+    {
+      name: 'Total',
+      selector: 'total',
+      width: '12%',
+      sortable: true,
+      right: true,
+    },
+  ];
 
   const handleSelectionYear = useCallback((event) => {
     setSelectedYear(event.target.value);
@@ -34,62 +86,45 @@ export default function Medalists() {
 
       setYears(yearsSorted);
 
-      const medalistFiltered = database
+      const athleteFiltered = database
         .filter(
           (value, index, array) =>
             index ===
-            array.findIndex((athlete) => athlete.athlete === value.athlete)
+            array.findIndex(
+              (athlete) =>
+                athlete.athlete === value.athlete && value.athlete !== ''
+            )
         )
         .map((athlete) => athlete.athlete);
 
-      const medalistAmount = [];
+      const athleteMedals = [];
 
-      medalistFiltered.forEach((athlete) => {
-        const medalistData = database.filter(
-          (medalist) => medalist.athlete === athlete
+      athleteFiltered.forEach((athlete) => {
+        const athleteData = database.filter(
+          (athleteItem) => athleteItem.athlete === athlete
         );
 
-        const medalistCountry = medalistData
-          .filter(
-            (value, index, array) =>
-              index ===
-              array.findIndex((country) => country.country === value.country)
-          )
-          .map((country) => country.country);
-
-        const medalistSport = medalistData
-          .filter(
-            (value, index, array) =>
-              index === array.findIndex((sport) => sport.sport === value.sport)
-          )
-          .map((sport) => sport.sport);
-
-        const medalistAmountYears = medalistData
-          .filter(
-            (value, index, array) =>
-              index === array.findIndex((year) => year.year === value.year)
-          )
-          .map((year) => year.year);
-
-        medalistAmountYears.forEach((year) => {
-          const { gold, silver, bronze } = medalistData
-            .filter((yearSelected) => yearSelected.year === year)
+        yearsSorted.forEach((year) => {
+          const { gold, silver, bronze, country, sport } = athleteData
+            .filter((yearData) => yearData.year === Number(year))
             .reduce(
               (accumulator, current) => {
                 accumulator.gold += current.gold;
                 accumulator.silver += current.silver;
                 accumulator.bronze += current.bronze;
+                accumulator.country = current.country;
+                accumulator.sport = current.sport;
 
                 return accumulator;
               },
-              { gold: 0, silver: 0, bronze: 0 }
+              { gold: 0, silver: 0, bronze: 0, country: '', sport: '' }
             );
 
-          medalistAmount.push({
+          athleteMedals.push({
             year,
             athlete,
-            country: medalistCountry,
-            sport: medalistSport,
+            country,
+            sport,
             gold,
             silver,
             bronze,
@@ -98,18 +133,19 @@ export default function Medalists() {
         });
       });
 
-      setData(medalistAmount.sort((a, b) => b.total - a.total));
+      setData(athleteMedals.sort((a, b) => b.total - a.total));
     }
+
     loadMedalistData();
   }, []);
 
   useEffect(() => {
     if (selectedYear !== 0) {
-      const medalistSummary = data.filter(
-        (medalist) => medalist.year === Number(selectedYear)
+      const athleteSummary = data.filter(
+        (athlete) => athlete.year === Number(selectedYear)
       );
 
-      setFilteredData(medalistSummary);
+      setFilteredData(athleteSummary);
     }
   }, [selectedYear]);
 
@@ -120,15 +156,16 @@ export default function Medalists() {
         <h1 id="title">Medals - Medalists</h1>
 
         <OptionHeader
-          route="/"
+          leftRoute="/"
+          rightRoute="/sports"
           years={years}
           onChange={handleSelectionYear}
           value={selectedYear}
-        >
-          General
-        </OptionHeader>
+          left="General"
+          right="Sports"
+        />
 
-        <MedalistTable data={filteredData} />
+        <Table data={filteredData} columns={columns} />
       </Content>
     </Container>
   );

@@ -6,7 +6,10 @@ import { Container, Content } from './styles';
 
 import Header from '../../components/Header';
 import OptionHeader from '../../components/OptionHeader';
-import GeneralTable from '../../components/GeneralTable';
+import Table from '../../components/Table';
+import GoldTitle from '../../components/GoldTitle';
+import SilverTitle from '../../components/SilverTitle';
+import BronzeTitle from '../../components/BronzeTitle';
 
 export default function Main() {
   const [years, setYears] = useState([]);
@@ -14,6 +17,43 @@ export default function Main() {
 
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+
+  const columns = [
+    {
+      name: 'Country',
+      selector: 'country',
+      width: '40%',
+      sortable: true,
+    },
+    {
+      name: <GoldTitle />,
+      selector: 'gold',
+      width: '15%',
+      sortable: true,
+      right: true,
+    },
+    {
+      name: <SilverTitle />,
+      selector: 'silver',
+      width: '15%',
+      sortable: true,
+      right: true,
+    },
+    {
+      name: <BronzeTitle />,
+      selector: 'bronze',
+      width: '15%',
+      sortable: true,
+      right: true,
+    },
+    {
+      name: 'Total',
+      selector: 'total',
+      width: '15%',
+      sortable: true,
+      right: true,
+    },
+  ];
 
   const handleSelectionYear = useCallback((event) => {
     setSelectedYear(event.target.value);
@@ -49,14 +89,14 @@ export default function Main() {
           (countries) => countries.country === country
         );
 
-        const countryDataYears = countryData
+        const yearsMedalsCountry = countryData
           .filter(
             (value, index, array) =>
               index === array.findIndex((year) => year.year === value.year)
           )
           .map((year) => year.year);
 
-        countryDataYears.forEach((year) => {
+        yearsMedalsCountry.forEach((year) => {
           const { gold, silver, bronze } = countryData
             .filter((yearSelected) => yearSelected.year === year)
             .reduce(
@@ -104,15 +144,16 @@ export default function Main() {
         <h1 id="title">Medals - General</h1>
 
         <OptionHeader
-          route="/medalists"
+          leftRoute="/sports"
+          rightRoute="/medalists"
           years={years}
           onChange={handleSelectionYear}
           value={selectedYear}
-        >
-          Medalists
-        </OptionHeader>
+          left="Sports"
+          right="Medalists"
+        />
 
-        <GeneralTable data={filteredData} />
+        <Table data={filteredData} columns={columns} />
       </Content>
     </Container>
   );

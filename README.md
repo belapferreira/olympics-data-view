@@ -7,7 +7,7 @@
 </p>
 
 <strong align="center">
-  The goal was developmenting web pages using ReactJS to view data regarding Olympic Games medalists and the data was consumed from a JSON file.
+  The goal was develop web pages using ReactJS to view data regarding Olympic Games medalists and the data was consumed from a JSON file.
 </strong>
 
 <p align="center">
@@ -24,14 +24,16 @@
   <a href="#arrow_down_small-cloning-the-repository">Cloning the repository</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#beginner-starting-the-application">Starting the application</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#wrench-techs--tools--resources">Techs | Tools | Resources</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">Licença</a>
+  <a href="#memo-license">License</a>
 </p>
 
 ### Features
 
-- Selection of years listed from JSON file;
 - General page to view the gold, silver and bronze medals won by country according to the selected year;
-- Medalists page to view the gold, silver and bronze medals won by athlete according to the selected year.
+- Medalists page to view the gold, silver and bronze medals won by athlete according to the selected year;
+- Sports page to view the gold, silver and bronze medals by sports according to the selected year and country;
+- Tables with pagination;
+- Responsive pages.
 ### :heavy_check_mark: Settings
 
 The settings to execute the application in your computer are listed below.

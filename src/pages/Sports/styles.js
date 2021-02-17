@@ -47,32 +47,82 @@ export const Content = styled.div`
   }
 `;
 
-export const OptionHeader = styled.div`
+export const DropdownCountry = styled.div`
   display: flex;
+  margin-bottom: 16px;
   align-items: center;
-  justify-content: space-between;
 
   span {
-    font-size: 24px;
+    font-size: 20px;
     margin-right: 12px;
   }
-`;
-
-export const Left = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const DropdownContainer = styled.div`
-  display: flex;
-  align-items: center;
 
   select {
     height: 28px;
-    width: 64px;
+    width: 160px;
     border-color: #409ae9;
     border-radius: 4px;
     font-family: 'Noto Sans JP', sans-serif;
     color: #141414;
+  }
+
+  @media (max-width: 1024px) {
+    span {
+      font-size: 16px;
+    }
+
+    select {
+      height: 24px;
+      width: 154px;
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    span {
+      font-size: 14px;
+    }
+
+    select {
+      height: 20px;
+      width: 140px;
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 425px) {
+    span {
+      font-size: 12px;
+    }
+
+    select {
+      height: 16px;
+      width: 120px;
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 375px) {
+    span {
+      font-size: 10px;
+    }
+
+    select {
+      height: 14px;
+      width: 100px;
+      font-size: 9px;
+    }
+  }
+
+  @media (max-width: 320px) {
+    span {
+      font-size: 10px;
+    }
+
+    select {
+      height: 12px;
+      width: 80px;
+      font-size: 8px;
+    }
   }
 `;

@@ -1,11 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { Container, Left, DropdownContainer, Right } from './styles';
+import { Container, Left, DropdownContainer, Right, NavButton } from './styles';
 
 export default function OptionHeader({
-  children,
-  route,
+  left,
+  right,
+  leftRoute,
+  rightRoute,
   years,
   onChange,
   value,
@@ -25,15 +28,23 @@ export default function OptionHeader({
       </Left>
 
       <Right>
-        <a href={route}>{children}</a>
+        <NavButton>
+          <Link to={leftRoute}>{left}</Link>
+        </NavButton>
+
+        <NavButton>
+          <Link to={rightRoute}>{right}</Link>
+        </NavButton>
       </Right>
     </Container>
   );
 }
 
 OptionHeader.propTypes = {
-  children: PropTypes.string.isRequired,
-  route: PropTypes.string.isRequired,
+  left: PropTypes.string.isRequired,
+  right: PropTypes.string.isRequired,
+  leftRoute: PropTypes.string.isRequired,
+  rightRoute: PropTypes.string.isRequired,
   years: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
