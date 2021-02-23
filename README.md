@@ -7,7 +7,7 @@
 </p>
 
 <strong align="center">
-  The goal was develop web pages using ReactJS to view data regarding Olympic Games medalists and the data was consumed from a JSON file.
+  The goal was to develop web pages using ReactJS to view data regarding Olympic Games medalists and the data was consumed from a JSON file.
 </strong>
 
 <p align="center">
